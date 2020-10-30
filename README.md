@@ -16,7 +16,7 @@ http.post({
     "email": "<User's Email Address>",
     "password": "<User's Password>",
   },
-  "body": '{"query":"query AllMovies {\n  movies {\n    title\n    year\n  }\n}"}'
+  "body": '{"query":"query  **ADD TYPE** {\n  **SOMETYPE** {\n    **SOMETYPE**\n    **SOMETYPE**\n  }\n}"}'
 })
 ```
 
