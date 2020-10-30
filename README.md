@@ -5,6 +5,9 @@ Study .json file for data from the LLZ study
 
 ## Variables Measured
 
+## GraphQL Schema
+
+
 ## API Access
 
 ## Schema

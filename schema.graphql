@@ -1,0 +1,635 @@
+type Datum {
+  _id: ObjectId
+  calibrationData: [DatumCalibrationDatum]
+  correctAnswer: Boolean
+  errorRateValue: Float
+  metadata: DatumMetadatum
+  plotPageData: [DatumPlotPageDatum]
+  questionPageData: [DatumQuestionPageDatum]
+  readingPageData: [DatumReadingPageDatum]
+  timestamp: Long
+  timestampForSync: Long
+  windowInnerHeight: Int
+  windowInnerWidth: Int
+}
+
+type DatumCalibrationDatum {
+  label: String
+  timestamp: Int
+  x: Float
+  y: Float
+}
+
+input DatumCalibrationDatumInsertInput {
+  x: Float
+  y: Float
+  label: String
+  timestamp: Int
+}
+
+input DatumCalibrationDatumQueryInput {
+  y_exists: Boolean
+  x: Float
+  x_lt: Float
+  timestamp_exists: Boolean
+  x_gt: Float
+  x_lte: Float
+  timestamp: Int
+  timestamp_lt: Int
+  x_in: [Float]
+  y_gte: Float
+  y_ne: Float
+  label_lt: String
+  timestamp_lte: Int
+  timestamp_gt: Int
+  timestamp_ne: Int
+  label_nin: [String]
+  label_gt: String
+  y_lte: Float
+  OR: [DatumCalibrationDatumQueryInput!]
+  label_in: [String]
+  timestamp_nin: [Int]
+  timestamp_gte: Int
+  AND: [DatumCalibrationDatumQueryInput!]
+  y: Float
+  label_gte: String
+  x_exists: Boolean
+  y_gt: Float
+  label_exists: Boolean
+  y_nin: [Float]
+  y_in: [Float]
+  y_lt: Float
+  label_lte: String
+  timestamp_in: [Int]
+  x_gte: Float
+  label_ne: String
+  x_nin: [Float]
+  label: String
+  x_ne: Float
+}
+
+input DatumCalibrationDatumUpdateInput {
+  label_unset: Boolean
+  x: Float
+  y_unset: Boolean
+  timestamp: Int
+  timestamp_inc: Int
+  x_inc: Float
+  y: Float
+  timestamp_unset: Boolean
+  x_unset: Boolean
+  y_inc: Float
+  label: String
+}
+
+input DatumInsertInput {
+  plotPageData: [DatumPlotPageDatumInsertInput]
+  questionPageData: [DatumQuestionPageDatumInsertInput]
+  timestamp: Long
+  calibrationData: [DatumCalibrationDatumInsertInput]
+  correctAnswer: Boolean
+  errorRateValue: Float
+  readingPageData: [DatumReadingPageDatumInsertInput]
+  _id: ObjectId
+  metadata: DatumMetadatumInsertInput
+  timestampForSync: Long
+  windowInnerHeight: Int
+  windowInnerWidth: Int
+}
+
+type DatumMetadatum {
+  age: String
+  ambient_light: String
+  contact_lenses: String
+  distance_monitor: String
+  eye_color: String
+  gender: String
+  glasses: String
+  hours_of_computer_use: String
+  input_device: String
+  size_monitor: String
+  skin_color: String
+  special_face_features: String
+  weak_vision: String
+}
+
+input DatumMetadatumInsertInput {
+  age: String
+  size_monitor: String
+  skin_color: String
+  ambient_light: String
+  distance_monitor: String
+  eye_color: String
+  glasses: String
+  hours_of_computer_use: String
+  input_device: String
+  special_face_features: String
+  contact_lenses: String
+  weak_vision: String
+  gender: String
+}
+
+input DatumMetadatumQueryInput {
+  hours_of_computer_use_in: [String]
+  special_face_features_gte: String
+  input_device_gte: String
+  AND: [DatumMetadatumQueryInput!]
+  ambient_light_nin: [String]
+  glasses_lte: String
+  contact_lenses_gt: String
+  distance_monitor_lte: String
+  special_face_features_lte: String
+  age: String
+  gender_exists: Boolean
+  glasses_lt: String
+  glasses_in: [String]
+  distance_monitor_in: [String]
+  ambient_light_lt: String
+  distance_monitor_nin: [String]
+  hours_of_computer_use_nin: [String]
+  skin_color_gt: String
+  size_monitor_nin: [String]
+  age_nin: [String]
+  hours_of_computer_use: String
+  input_device_in: [String]
+  size_monitor_gt: String
+  skin_color_ne: String
+  size_monitor: String
+  size_monitor_lt: String
+  special_face_features_ne: String
+  glasses_exists: Boolean
+  glasses_gt: String
+  eye_color_gt: String
+  hours_of_computer_use_ne: String
+  ambient_light_gt: String
+  hours_of_computer_use_lt: String
+  special_face_features_lt: String
+  glasses_nin: [String]
+  skin_color_in: [String]
+  OR: [DatumMetadatumQueryInput!]
+  glasses_gte: String
+  gender_ne: String
+  contact_lenses_exists: Boolean
+  eye_color: String
+  eye_color_in: [String]
+  input_device_exists: Boolean
+  gender_in: [String]
+  distance_monitor_lt: String
+  weak_vision_gte: String
+  special_face_features: String
+  age_exists: Boolean
+  contact_lenses_lt: String
+  gender_lt: String
+  ambient_light_ne: String
+  contact_lenses: String
+  glasses_ne: String
+  size_monitor_in: [String]
+  size_monitor_exists: Boolean
+  glasses: String
+  input_device: String
+  size_monitor_lte: String
+  input_device_gt: String
+  weak_vision: String
+  input_device_lte: String
+  hours_of_computer_use_exists: Boolean
+  hours_of_computer_use_gte: String
+  input_device_ne: String
+  eye_color_lt: String
+  distance_monitor_gte: String
+  gender_gte: String
+  contact_lenses_in: [String]
+  distance_monitor_exists: Boolean
+  weak_vision_in: [String]
+  gender_gt: String
+  contact_lenses_ne: String
+  hours_of_computer_use_gt: String
+  size_monitor_gte: String
+  input_device_nin: [String]
+  age_lt: String
+  contact_lenses_lte: String
+  weak_vision_exists: Boolean
+  ambient_light_gte: String
+  eye_color_nin: [String]
+  weak_vision_gt: String
+  skin_color_exists: Boolean
+  skin_color_lt: String
+  eye_color_ne: String
+  distance_monitor_ne: String
+  eye_color_gte: String
+  gender: String
+  special_face_features_in: [String]
+  age_ne: String
+  ambient_light_in: [String]
+  ambient_light_exists: Boolean
+  gender_nin: [String]
+  weak_vision_nin: [String]
+  input_device_lt: String
+  skin_color_lte: String
+  skin_color_nin: [String]
+  size_monitor_ne: String
+  hours_of_computer_use_lte: String
+  special_face_features_gt: String
+  distance_monitor_gt: String
+  contact_lenses_gte: String
+  age_gte: String
+  age_gt: String
+  eye_color_exists: Boolean
+  eye_color_lte: String
+  special_face_features_nin: [String]
+  weak_vision_lte: String
+  ambient_light: String
+  special_face_features_exists: Boolean
+  age_in: [String]
+  contact_lenses_nin: [String]
+  weak_vision_ne: String
+  ambient_light_lte: String
+  gender_lte: String
+  distance_monitor: String
+  weak_vision_lt: String
+  skin_color: String
+  age_lte: String
+  skin_color_gte: String
+}
+
+input DatumMetadatumUpdateInput {
+  weak_vision: String
+  age_unset: Boolean
+  special_face_features_unset: Boolean
+  distance_monitor: String
+  eye_color: String
+  ambient_light: String
+  age: String
+  weak_vision_unset: Boolean
+  size_monitor: String
+  distance_monitor_unset: Boolean
+  eye_color_unset: Boolean
+  hours_of_computer_use: String
+  contact_lenses: String
+  hours_of_computer_use_unset: Boolean
+  skin_color_unset: Boolean
+  gender: String
+  gender_unset: Boolean
+  glasses: String
+  input_device_unset: Boolean
+  input_device: String
+  size_monitor_unset: Boolean
+  glasses_unset: Boolean
+  special_face_features: String
+  ambient_light_unset: Boolean
+  contact_lenses_unset: Boolean
+  skin_color: String
+}
+
+type DatumPlotPageDatum {
+  label: String
+  timestamp: Int
+  x: Float
+  y: Float
+}
+
+input DatumPlotPageDatumInsertInput {
+  y: Float
+  label: String
+  timestamp: Int
+  x: Float
+}
+
+input DatumPlotPageDatumQueryInput {
+  y_in: [Float]
+  AND: [DatumPlotPageDatumQueryInput!]
+  y_exists: Boolean
+  y_ne: Float
+  x_lt: Float
+  y: Float
+  timestamp_gt: Int
+  x_lte: Float
+  x_exists: Boolean
+  timestamp_exists: Boolean
+  label_lte: String
+  timestamp_nin: [Int]
+  OR: [DatumPlotPageDatumQueryInput!]
+  timestamp_gte: Int
+  timestamp: Int
+  y_gte: Float
+  timestamp_lte: Int
+  timestamp_ne: Int
+  x_in: [Float]
+  label: String
+  label_gte: String
+  x_gte: Float
+  label_in: [String]
+  label_ne: String
+  timestamp_lt: Int
+  label_lt: String
+  y_gt: Float
+  x_ne: Float
+  y_lte: Float
+  x_gt: Float
+  timestamp_in: [Int]
+  x: Float
+  y_nin: [Float]
+  label_exists: Boolean
+  label_nin: [String]
+  x_nin: [Float]
+  label_gt: String
+  y_lt: Float
+}
+
+input DatumPlotPageDatumUpdateInput {
+  y: Float
+  timestamp_inc: Int
+  label_unset: Boolean
+  timestamp: Int
+  label: String
+  timestamp_unset: Boolean
+  x: Float
+  y_inc: Float
+  x_inc: Float
+  x_unset: Boolean
+  y_unset: Boolean
+}
+
+input DatumQueryInput {
+  _id_exists: Boolean
+  windowInnerHeight_lte: Int
+  calibrationData: [DatumCalibrationDatumQueryInput]
+  _id_in: [ObjectId]
+  correctAnswer_ne: Boolean
+  _id_lt: ObjectId
+  windowInnerWidth: Int
+  errorRateValue_lte: Float
+  _id_gte: ObjectId
+  errorRateValue_ne: Float
+  errorRateValue_gt: Float
+  windowInnerHeight: Int
+  readingPageData_in: [DatumReadingPageDatumQueryInput]
+  windowInnerHeight_lt: Int
+  windowInnerWidth_gte: Int
+  windowInnerWidth_lt: Int
+  errorRateValue_exists: Boolean
+  windowInnerWidth_exists: Boolean
+  errorRateValue_nin: [Float]
+  windowInnerHeight_gte: Int
+  calibrationData_exists: Boolean
+  errorRateValue_lt: Float
+  timestampForSync_exists: Boolean
+  timestamp: Long
+  questionPageData_nin: [DatumQuestionPageDatumQueryInput]
+  plotPageData_exists: Boolean
+  windowInnerHeight_gt: Int
+  timestamp_exists: Boolean
+  plotPageData: [DatumPlotPageDatumQueryInput]
+  readingPageData: [DatumReadingPageDatumQueryInput]
+  calibrationData_nin: [DatumCalibrationDatumQueryInput]
+  windowInnerHeight_exists: Boolean
+  questionPageData_in: [DatumQuestionPageDatumQueryInput]
+  windowInnerWidth_nin: [Int]
+  _id: ObjectId
+  windowInnerHeight_in: [Int]
+  metadata_exists: Boolean
+  windowInnerWidth_in: [Int]
+  metadata: DatumMetadatumQueryInput
+  windowInnerWidth_ne: Int
+  windowInnerWidth_gt: Int
+  AND: [DatumQueryInput!]
+  questionPageData: [DatumQuestionPageDatumQueryInput]
+  windowInnerHeight_nin: [Int]
+  errorRateValue: Float
+  errorRateValue_gte: Float
+  readingPageData_nin: [DatumReadingPageDatumQueryInput]
+  _id_nin: [ObjectId]
+  readingPageData_exists: Boolean
+  _id_ne: ObjectId
+  plotPageData_nin: [DatumPlotPageDatumQueryInput]
+  questionPageData_exists: Boolean
+  correctAnswer: Boolean
+  correctAnswer_exists: Boolean
+  _id_gt: ObjectId
+  timestampForSync: Long
+  calibrationData_in: [DatumCalibrationDatumQueryInput]
+  windowInnerWidth_lte: Int
+  errorRateValue_in: [Float]
+  _id_lte: ObjectId
+  OR: [DatumQueryInput!]
+  windowInnerHeight_ne: Int
+  plotPageData_in: [DatumPlotPageDatumQueryInput]
+}
+
+type DatumQuestionPageDatum {
+  label: String
+  timestamp: Int
+  x: Float
+  y: Float
+}
+
+input DatumQuestionPageDatumInsertInput {
+  timestamp: Int
+  x: Float
+  y: Float
+  label: String
+}
+
+input DatumQuestionPageDatumQueryInput {
+  x: Float
+  y_gte: Float
+  label_nin: [String]
+  x_in: [Float]
+  timestamp_lt: Int
+  y: Float
+  y_ne: Float
+  timestamp_ne: Int
+  y_lt: Float
+  label_in: [String]
+  timestamp_lte: Int
+  x_gt: Float
+  timestamp_gte: Int
+  y_gt: Float
+  x_lt: Float
+  label: String
+  label_ne: String
+  OR: [DatumQuestionPageDatumQueryInput!]
+  y_lte: Float
+  timestamp_in: [Int]
+  x_nin: [Float]
+  label_lte: String
+  timestamp_gt: Int
+  x_exists: Boolean
+  label_gt: String
+  y_in: [Float]
+  AND: [DatumQuestionPageDatumQueryInput!]
+  timestamp_nin: [Int]
+  x_gte: Float
+  timestamp: Int
+  x_lte: Float
+  x_ne: Float
+  y_exists: Boolean
+  y_nin: [Float]
+  label_gte: String
+  label_lt: String
+  timestamp_exists: Boolean
+  label_exists: Boolean
+}
+
+input DatumQuestionPageDatumUpdateInput {
+  x_unset: Boolean
+  label: String
+  label_unset: Boolean
+  timestamp: Int
+  x_inc: Float
+  y: Float
+  y_unset: Boolean
+  x: Float
+  y_inc: Float
+  timestamp_inc: Int
+  timestamp_unset: Boolean
+}
+
+type DatumReadingPageDatum {
+  label: String
+  timestamp: Int
+  x: Float
+  y: Float
+}
+
+input DatumReadingPageDatumInsertInput {
+  x: Float
+  y: Float
+  label: String
+  timestamp: Int
+}
+
+input DatumReadingPageDatumQueryInput {
+  label_exists: Boolean
+  OR: [DatumReadingPageDatumQueryInput!]
+  timestamp_lt: Int
+  y: Float
+  timestamp_ne: Int
+  x_exists: Boolean
+  label_ne: String
+  label_gte: String
+  label_in: [String]
+  y_lte: Float
+  label: String
+  label_lte: String
+  timestamp: Int
+  y_nin: [Float]
+  timestamp_nin: [Int]
+  timestamp_exists: Boolean
+  timestamp_lte: Int
+  y_lt: Float
+  x_lte: Float
+  timestamp_in: [Int]
+  x: Float
+  x_gt: Float
+  y_in: [Float]
+  timestamp_gte: Int
+  y_gte: Float
+  label_gt: String
+  label_lt: String
+  y_ne: Float
+  timestamp_gt: Int
+  label_nin: [String]
+  y_exists: Boolean
+  x_nin: [Float]
+  x_lt: Float
+  x_gte: Float
+  AND: [DatumReadingPageDatumQueryInput!]
+  x_ne: Float
+  x_in: [Float]
+  y_gt: Float
+}
+
+input DatumReadingPageDatumUpdateInput {
+  y_inc: Float
+  timestamp_unset: Boolean
+  x: Float
+  label_unset: Boolean
+  timestamp: Int
+  y: Float
+  label: String
+  x_inc: Float
+  x_unset: Boolean
+  y_unset: Boolean
+  timestamp_inc: Int
+}
+
+enum DatumSortByInput {
+  WINDOWINNERWIDTH_ASC
+  WINDOWINNERWIDTH_DESC
+  _ID_ASC
+  _ID_DESC
+  WINDOWINNERHEIGHT_ASC
+  WINDOWINNERHEIGHT_DESC
+  TIMESTAMP_ASC
+  TIMESTAMP_DESC
+  ERRORRATEVALUE_ASC
+  ERRORRATEVALUE_DESC
+  TIMESTAMPFORSYNC_ASC
+  TIMESTAMPFORSYNC_DESC
+}
+
+input DatumUpdateInput {
+  readingPageData_unset: Boolean
+  windowInnerHeight_unset: Boolean
+  questionPageData: [DatumQuestionPageDatumUpdateInput]
+  errorRateValue: Float
+  readingPageData: [DatumReadingPageDatumUpdateInput]
+  calibrationData_unset: Boolean
+  _id: ObjectId
+  windowInnerWidth_inc: Int
+  timestamp: Long
+  correctAnswer_unset: Boolean
+  calibrationData: [DatumCalibrationDatumUpdateInput]
+  correctAnswer: Boolean
+  questionPageData_unset: Boolean
+  plotPageData: [DatumPlotPageDatumUpdateInput]
+  errorRateValue_unset: Boolean
+  metadata: DatumMetadatumUpdateInput
+  timestampForSync_unset: Boolean
+  timestamp_unset: Boolean
+  metadata_unset: Boolean
+  windowInnerHeight_inc: Int
+  timestampForSync: Long
+  errorRateValue_inc: Float
+  windowInnerWidth: Int
+  windowInnerWidth_unset: Boolean
+  plotPageData_unset: Boolean
+  _id_unset: Boolean
+  windowInnerHeight: Int
+}
+
+type DeleteManyPayload {
+  deletedCount: Int!
+}
+
+type InsertManyPayload {
+  insertedIds: [ObjectId]!
+}
+
+"""
+The `Long` scalar type represents non-fractional signed whole numeric values in string format to prevent lossy conversions
+"""
+scalar Long
+
+type Mutation {
+  deleteManyData(query: DatumQueryInput): DeleteManyPayload
+  deleteOneDatum(query: DatumQueryInput!): Datum
+  insertManyData(data: [DatumInsertInput!]!): InsertManyPayload
+  insertOneDatum(data: DatumInsertInput!): Datum
+  replaceOneDatum(query: DatumQueryInput, data: DatumInsertInput!): Datum
+  updateManyData(query: DatumQueryInput, set: DatumUpdateInput!): UpdateManyPayload
+  updateOneDatum(query: DatumQueryInput, set: DatumUpdateInput!): Datum
+  upsertOneDatum(data: DatumInsertInput!, query: DatumQueryInput): Datum
+}
+
+scalar ObjectId
+
+type Query {
+  data(query: DatumQueryInput, limit: Int = 100, sortBy: DatumSortByInput): [Datum]!
+  datum(query: DatumQueryInput): Datum
+}
+
+type UpdateManyPayload {
+  matchedCount: Int!
+  modifiedCount: Int!
+}
