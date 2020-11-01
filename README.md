@@ -14,7 +14,7 @@ You can access the data in two ways:
 
 You can access the Graph API with the following credentials. Please add your email and password, I have added all of you as admins to the Cluster for the data. 
 
-You can query this data in GraphQL([https://graphql.org]).
+You can query this data in GraphQL [(https://graphql.org)].
 
 ```curl
 http.post({
