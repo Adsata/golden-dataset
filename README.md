@@ -30,5 +30,5 @@ http.post({
 
 ## Graph Schema
 
-See the **schema.hraphql** file for the graph schema.
+See the **schema.graphql** file for the graph schema.
 
