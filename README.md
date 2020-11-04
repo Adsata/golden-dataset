@@ -20,7 +20,7 @@ In a second step of this study, we want to make it public available. The so call
 ### Empirical data
 In the beginning of the session, each participant is asked for some data, divided in three sections: *personal*, *information for face recognition* and *information about the enviornment*.
 
-Note: The study can be done, leaving some or all meta data questions empty.
+Note: The study can be done, leaving some or all empirical data questions empty.
 
 #### Personal
 
@@ -66,6 +66,56 @@ Each data point has the structure:
 The label can be empty.
 
 #### calibrationData
+
+The calibration step has 26 circles to click on (5 times) and in the end one big circle getting smaller (over 16 secondes) until it vanishes. 
+
+##### 26 circles
+
+The position (x%, y%) and order [...,...] of the 28 circles is as in the image below shown. 
+
+![Calibration Step](./documentation/calibrationStep.png)
+
+The labels of the data are *fixation* after the first (of five) click and *saccade* after the 5th click.
+
+##### Descending circle
+
+The last circle is positioned in the middle and lasts 16 seconds until it is vanished.
+The label of all data points is *errorRate*, because from this points I calculate the *errorRateValue* on the client side. With this value we could decide to repeat the calibration step, if the value is to high. In this study however is no repetition. The value is only stored to the database.
+
+#### readingPage
+
+Every position in the study is in percent, because after the laboratory setup, we want to make the study public available. This means that participants can have very different screen sizes. So to make sure, everyone has the same view, everything needs to be done in percent.
+
+Every position is shown in the image below:
+
+![reading page](./documentation/readingPageBig.png)
+
+To show the example how every data point (black circle at (60%, 37%)) stays the same, I made a screenshot with half of the screen size:
+
+![reading page with half of the screen size](./documentation/readingPageSmall.png) 
+
+Note how the circle remains at the same (word) position.
+
+### plotPage
+
+To make the image available on all screen sizes, its ratio is multiplied by the screen size. So it remains always in the same proportion.
+
+The image is centerd, but 70px moved to the top, otherwise the browser window would be scrollable. 
+
+Take all the information from the image below:
+
+![plot page](./documentation/plotPageBig.png)
+
+
+### questionPage
+
+If the correct answer was selected is stored in the database. The position and sizes are shown in the image below.
+
+![question page](./documentation/questionPageBig.png)
+
+See also the same proportions on a smaller screen:
+
+![question page on smaller screen](./documentation/questionPageSmall.png)
 
 ## Graph API Access
 
